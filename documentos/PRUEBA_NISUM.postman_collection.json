@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "e494d227-36a1-4aa7-a075-600676c5fb57",
+		"name": "PRUEBA_NISUM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "USER_POST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Juan Rodriguez\",\r\n  \"email\": \"juan@dominio.cl\",\r\n  \"password\": \"Hunters22\",\r\n  \"phones\": [\r\n    {\r\n      \"number\": \"1234567\",\r\n      \"citycode\": \"1\",\r\n      \"contrycode\": \"57\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USER_PUT",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxN2EyZDYwYS1jYjI2LTRjNDktOGVlYy0wODUyZmNmZGYyODUiLCJpYXQiOjE2MzA4ODI5MDgsInN1YiI6Imp1YW5AZG9taW5pby5jbCIsImlzcyI6ImFjMDUxMmJlLTQ5ZDQtNDcwNC1hMDM0LTAxYWQ3ZWNlZDczZiIsImV4cCI6MTYzMDg4NjUwOH0.jZ3bDqdi-BPWNy3ge4lNEFz1uWxddHs09TMBnlVRVjY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Juan Rodriguez\",\r\n  \"email\": \"juan@dominio.cl\",\r\n  \"password\": \"Hunters22\",\r\n  \"phones\": [\r\n    {\r\n      \"number\": \"1234567\",\r\n      \"citycode\": \"1\",\r\n      \"contrycode\": \"57\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USER_PUT_DISABLE",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxN2EyZDYwYS1jYjI2LTRjNDktOGVlYy0wODUyZmNmZGYyODUiLCJpYXQiOjE2MzA4ODI5MDgsInN1YiI6Imp1YW5AZG9taW5pby5jbCIsImlzcyI6ImFjMDUxMmJlLTQ5ZDQtNDcwNC1hMDM0LTAxYWQ3ZWNlZDczZiIsImV4cCI6MTYzMDg4NjUwOH0.jZ3bDqdi-BPWNy3ge4lNEFz1uWxddHs09TMBnlVRVjY"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Juan Rodriguez\",\r\n  \"email\": \"juan@dominio.cl\",\r\n  \"password\": \"Hunters22\",\r\n  \"phones\": [\r\n    {\r\n      \"number\": \"1234567\",\r\n      \"citycode\": \"1\",\r\n      \"contrycode\": \"57\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/user/change",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"user",
+						"change"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
