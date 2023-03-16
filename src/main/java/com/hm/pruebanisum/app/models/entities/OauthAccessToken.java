@@ -1,19 +1,27 @@
 package com.hm.pruebanisum.app.models.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper=false)
 @Table(name = "oauth_access_token")
-public class OauthAccessToken implements Serializable {
+public class OauthAccessToken extends AuditEntity {
 
     private static final long serialVersionUID = 1L;
 
@@ -25,15 +33,9 @@ public class OauthAccessToken implements Serializable {
     private String token;
     @Column(name = "authentication_id")
     private String authenticationId;
-    private LocalDateTime created;
-
-    @PrePersist
-    void prePersist() {
-        created = LocalDateTime.now();
-    }
 
     public boolean validateToken(OauthAccessToken oauthAccessToken) {
-        return LocalDateTime.now().plusHours(-1).isBefore(oauthAccessToken.created);
+        return LocalDateTime.now().plusHours(-1).isBefore(super.getCreatedAt());
     }
 
 }

@@ -1,21 +1,37 @@
 package com.hm.pruebanisum.app.models.entities;
 
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Setter
+@Data
 @Builder
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(callSuper=false)
 @Table(name = "usuarios")
-public class Usuario {
+public class Usuario extends AuditEntity {
 	
 	@Id
 	@GeneratedValue(generator = "uuid2")
@@ -24,8 +40,6 @@ public class Usuario {
 	private String name;
 	private String email;
 	private String password;
-	private LocalDateTime created;
-	private LocalDateTime modified;
 	@Column(name = "last_login")
 	private LocalDateTime lastLogin;
 	private boolean active;
@@ -39,12 +53,6 @@ public class Usuario {
 			inverseJoinColumns=@JoinColumn(name="role_id"),
 			uniqueConstraints= {@UniqueConstraint(columnNames= {"usuario_id","role_id"})})
 	private List<Role> roles = new ArrayList<>();
-
-	@PrePersist
-	void prePersist() {
-		this.created = LocalDateTime.now();
-		this.active = true;
-	}
 
 	public void addPhones(List<Phone> phones) {
 		this.phones.addAll(phones);
