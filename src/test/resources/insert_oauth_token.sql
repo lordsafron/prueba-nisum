@@ -1,0 +1,2 @@
+INSERT INTO public.oauth_access_token (id, authentication_id, created_at, updated_at, token)
+VALUES(1, 'f0fd7c65-80db-4f6e-9ced-9bca6c99f6ff', '2023-03-16 12:38:19.118', '2023-03-16 12:50:19.118', 'eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIwN2E3MDc1ZS1mNmI4LTQ3MGItYmRjMy05MWMyMDEzYzA0MGUiLCJpYXQiOjE2Nzg5ODgyOTksInN1YiI6Imp1YW5AZG9taW5pby5jbCIsImlzcyI6ImYwZmQ3YzY1LTgwZGItNGY2ZS05Y2VkLTliY2E2Yzk5ZjZmZiIsImV4cCI6MTY3ODk5MTg5OX0.mMcd3NMp6GyLhH2VlhE_DiXInRMFcvyhep1u-GUjA0Q');

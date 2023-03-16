@@ -7,6 +7,7 @@ import com.hm.pruebanisum.app.models.entities.Usuario;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.UUID;
 
 public class Datos {
@@ -17,7 +18,17 @@ public class Datos {
             .email("email@dominio.cl")
             .name("name")
             .password("Password12")
-            .phones(Arrays.asList(PhoneDto.builder()
+            .phones(Collections.singletonList(PhoneDto.builder()
+                    .citycode("01")
+                    .contrycode("CO")
+                    .number("1234332")
+                    .build()))
+            .build();
+
+    public static final UserRequestDto USER_BAD_REQUEST_DTO = UserRequestDto.builder()
+            .name("name")
+            .password("Password12")
+            .phones(Collections.singletonList(PhoneDto.builder()
                     .citycode("01")
                     .contrycode("CO")
                     .number("1234332")
@@ -38,8 +49,6 @@ public class Datos {
     public static final Usuario USUARIO_DISABLED = Usuario.builder()
             .password("Password12")
             .name("name")
-            .created(LocalDateTime.now())
-            .modified(LocalDateTime.now())
             .email("email@dominio.cl")
             .lastLogin(LocalDateTime.now())
             .active(false)
@@ -48,8 +57,6 @@ public class Datos {
     public static final Usuario USUARIO_BD = Usuario.builder()
             .password("Passwordbd12")
             .name("nameBD")
-            .created(LocalDateTime.now())
-            .modified(LocalDateTime.now())
             .email("emailbd@dominio.cl")
             .lastLogin(LocalDateTime.now())
             .id(UUID.randomUUID().toString())
@@ -59,8 +66,6 @@ public class Datos {
     public static final Usuario USUARIO_BD_SAVE = Usuario.builder()
             .password("Passwordbd22")
             .name("nameBDSAVE")
-            .created(LocalDateTime.now())
-            .modified(LocalDateTime.now())
             .email("emailbdsave@dominio.cl")
             .lastLogin(LocalDateTime.now())
             .id(UUID.randomUUID().toString())
@@ -70,8 +75,6 @@ public class Datos {
     public static final Usuario USUARIO_UPDATE = Usuario.builder()
             .password("Passwordbd22")
             .name("nameBDSAVE")
-            .created(LocalDateTime.now())
-            .modified(LocalDateTime.now())
             .email("emailbdsave@dominio.cl")
             .lastLogin(LocalDateTime.now())
             .id(UUID.randomUUID().toString())
@@ -81,7 +84,6 @@ public class Datos {
     public static final OauthAccessToken OAUTH_ACCESS_TOKEN = OauthAccessToken.builder()
             .authenticationId(USUARIO_BD.getId())
             .tokenId(1L)
-            .created(LocalDateTime.now())
             .token(TOKEN)
             .build();
 

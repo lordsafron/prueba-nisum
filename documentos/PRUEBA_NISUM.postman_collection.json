@@ -2,7 +2,8 @@
 	"info": {
 		"_postman_id": "e494d227-36a1-4aa7-a075-600676c5fb57",
 		"name": "PRUEBA_NISUM",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3227998"
 	},
 	"item": [
 		{
@@ -12,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Juan Rodriguez\",\r\n  \"email\": \"juan@dominio.cl\",\r\n  \"password\": \"Hunters22\",\r\n  \"phones\": [\r\n    {\r\n      \"number\": \"1234567\",\r\n      \"citycode\": \"1\",\r\n      \"contrycode\": \"57\"\r\n    }\r\n  ]\r\n}",
+					"raw": "{\r\n  \"name\": \"Juan Rodriguez\",\r\n  \"email\": \"juan4@dominio.cl\",\r\n  \"password\": \"Hunters22\",\r\n  \"phones\": [\r\n    {\r\n      \"number\": \"1234567\",\r\n      \"citycode\": \"1\",\r\n      \"contrycode\": \"57\"\r\n    }\r\n  ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -20,12 +21,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:9000/user",
+					"raw": "http://localhost:8080/user",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "9000",
+					"port": "8080",
 					"path": [
 						"user"
 					]
@@ -40,13 +41,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxN2EyZDYwYS1jYjI2LTRjNDktOGVlYy0wODUyZmNmZGYyODUiLCJpYXQiOjE2MzA4ODI5MDgsInN1YiI6Imp1YW5AZG9taW5pby5jbCIsImlzcyI6ImFjMDUxMmJlLTQ5ZDQtNDcwNC1hMDM0LTAxYWQ3ZWNlZDczZiIsImV4cCI6MTYzMDg4NjUwOH0.jZ3bDqdi-BPWNy3ge4lNEFz1uWxddHs09TMBnlVRVjY",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJjNWNiZWJhMi02YWI4LTQ4YTEtYTUwNC04ODRmNGQ4YTA4ZDgiLCJpYXQiOjE2NzkwMDMyNDEsInN1YiI6Imp1YW40QGRvbWluaW8uY2wiLCJpc3MiOiI3ZTZhZjFhYS0xOGYwLTQwZGItYTkyMi03MDI1ZGU2YjhlMzYiLCJleHAiOjE2NzkwMDY4NDF9.PLpRns4uhpfMpR9oY4aggipxB59j51bCDBn_hs1NahQ",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Juan Rodriguez\",\r\n  \"email\": \"juan@dominio.cl\",\r\n  \"password\": \"Hunters22\",\r\n  \"phones\": [\r\n    {\r\n      \"number\": \"1234567\",\r\n      \"citycode\": \"1\",\r\n      \"contrycode\": \"57\"\r\n    }\r\n  ]\r\n}",
+					"raw": "{\r\n  \"name\": \"Juan Rodriguez\",\r\n  \"email\": \"juan4@dominio.cl\",\r\n  \"password\": \"Hunters22\",\r\n  \"phones\": [\r\n    {\r\n      \"number\": \"1234567\",\r\n      \"citycode\": \"1\",\r\n      \"contrycode\": \"57\"\r\n    }\r\n  ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -54,12 +55,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:9000/user",
+					"raw": "http://localhost:8080/user",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "9000",
+					"port": "8080",
 					"path": [
 						"user"
 					]
@@ -75,7 +76,7 @@
 					{
 						"key": "Authorization",
 						"type": "text",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxN2EyZDYwYS1jYjI2LTRjNDktOGVlYy0wODUyZmNmZGYyODUiLCJpYXQiOjE2MzA4ODI5MDgsInN1YiI6Imp1YW5AZG9taW5pby5jbCIsImlzcyI6ImFjMDUxMmJlLTQ5ZDQtNDcwNC1hMDM0LTAxYWQ3ZWNlZDczZiIsImV4cCI6MTYzMDg4NjUwOH0.jZ3bDqdi-BPWNy3ge4lNEFz1uWxddHs09TMBnlVRVjY"
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI0NDk4Mjc4Ny1hOGRiLTQzNjEtYTE5ZC04ZDI5MjhjOTYyNzciLCJpYXQiOjE2Nzg5ODYxNzgsInN1YiI6Imp1YW5AZG9taW5pby5jbCIsImlzcyI6IjI0OGFhYmE4LWIyYzEtNDE2Zi1iZDdmLTRlYTNhZDE2NDM5MyIsImV4cCI6MTY3ODk4OTc3OH0.3vhZ2Gw6FW3QL9HQ9rlb_WqUOESXQfxH_lsYqGFDbTU"
 					}
 				],
 				"body": {
@@ -88,12 +89,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:9000/user/change",
+					"raw": "http://localhost:8080/user/change",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "9000",
+					"port": "8080",
 					"path": [
 						"user",
 						"change"
