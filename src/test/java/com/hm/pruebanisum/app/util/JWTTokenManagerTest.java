@@ -2,14 +2,21 @@ package com.hm.pruebanisum.app.util;
 
 import com.hm.pruebanisum.app.config.JwtBeanConfig;
 import io.jsonwebtoken.Claims;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 class JWTTokenManagerTest {
 
@@ -45,7 +52,7 @@ class JWTTokenManagerTest {
         String issuer = "email@dominio.cl";
         String subject = "algo";
 
-        String jwt = jwtTokenManager.createJWT(id, issuer, subject);
+        String jwt = "Bearer ".concat(jwtTokenManager.createJWT(id, issuer, subject));
 
         assertTrue(jwt.length() > 0);
 
@@ -60,13 +67,23 @@ class JWTTokenManagerTest {
     }
 
     @Test
+    void testDecodeJWT_InvalidToken() {
+        String jwt = "";
+
+        var exception =
+                Assertions.assertThrows(Exception.class, () -> jwtTokenManager.decodeJWT(jwt));
+
+        Assertions.assertTrue(exception.getMessage().contains("no válido"));
+    }
+
+    @Test
     void testAddSeconds() {
         int timeExp= 3600;
         Date now = new Date();
 
         Date dateExp = jwtTokenManager.addSeconds(now, timeExp);
 
-        assertFalse(dateExp.equals(now));
+        assertNotEquals(dateExp, now);
         assertTrue(dateExp.getTime() > now.getTime());
 
     }
