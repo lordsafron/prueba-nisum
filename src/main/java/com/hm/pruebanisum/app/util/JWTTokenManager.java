@@ -1,6 +1,7 @@
 package com.hm.pruebanisum.app.util;
 
 import com.hm.pruebanisum.app.config.JwtBeanConfig;
+import com.hm.pruebanisum.app.constants.GeneralConstants;
 import com.hm.pruebanisum.app.exceptions.TokenDecodeException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -49,7 +50,7 @@ public class JWTTokenManager {
         try {
             claims = Jwts.parser()
                 .setSigningKey(DatatypeConverter.parseBase64Binary(config.getSecretKey()))
-                .parseClaimsJws(jwt.split(" ")[1]).getBody();
+                .parseClaimsJws(jwt.split(GeneralConstants.EMPTY)[GeneralConstants.ONE]).getBody();
 
         } catch (ExpiredJwtException ex) {
             throw new TokenDecodeException("token expirado");

@@ -5,6 +5,7 @@ import com.hm.pruebanisum.app.util.JWTTokenManager;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import static com.hm.pruebanisum.app.constants.GeneralConstants.API_DOC_PATH;
+import static com.hm.pruebanisum.app.constants.GeneralConstants.SWAGGER_PATH;
+import static com.hm.pruebanisum.app.constants.GeneralConstants.USER_PATH;
+import static org.springframework.http.HttpHeaders.AUTHORIZATION;
+
 @Slf4j
 @Service
 @Order(1)
@@ -36,16 +42,16 @@ public class AuthFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         if (Objects.nonNull(((HttpServletRequest) request).getRequestURI()) &&
-                (((HttpServletRequest) request).getRequestURI().contains("/user") ||
-                ((HttpServletRequest) request).getRequestURI().contains("/swagger") ||
-                ((HttpServletRequest) request).getRequestURI().contains("/api-docs")) &&
-                (((HttpServletRequest) request).getMethod().equals("POST") ||
-                ((HttpServletRequest) request).getMethod().equals("GET"))) {
+                (((HttpServletRequest) request).getRequestURI().contains(USER_PATH) ||
+                ((HttpServletRequest) request).getRequestURI().contains(SWAGGER_PATH) ||
+                ((HttpServletRequest) request).getRequestURI().contains(API_DOC_PATH)) &&
+                (((HttpServletRequest) request).getMethod().equals(HttpMethod.POST.name()) ||
+                ((HttpServletRequest) request).getMethod().equals(HttpMethod.GET.name()))) {
             log.info("metodo: " + ((HttpServletRequest) request).getMethod());
             chain.doFilter(request, response);
             return;
         }
-        String token = ((HttpServletRequest) request).getHeader("Authorization");
+        String token = ((HttpServletRequest) request).getHeader(AUTHORIZATION);
         if (Objects.isNull(token)) {
             response(response, "Recurso no autorizado", HttpStatus.UNAUTHORIZED);
             return;

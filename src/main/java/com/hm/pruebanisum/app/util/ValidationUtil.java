@@ -1,5 +1,6 @@
 package com.hm.pruebanisum.app.util;
 
+import com.hm.pruebanisum.app.constants.GeneralConstants;
 import com.hm.pruebanisum.app.exceptions.BadRequestException;
 import org.springframework.validation.BindingResult;
 
@@ -14,8 +15,8 @@ public class ValidationUtil {
             throw new BadRequestException(
                     result.getFieldErrors()
                             .stream().map(err ->
-                                    "El campo " + err.getField() + " " + err.getDefaultMessage())
-                            .collect(Collectors.joining(", "))
+                                    GeneralConstants.FIELD + err.getField() + GeneralConstants.EMPTY + err.getDefaultMessage())
+                            .collect(Collectors.joining(GeneralConstants.DELIMITER))
             );
         }
     }
